@@ -1,0 +1,572 @@
+<!DOCTYPE html> 
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çakır Motosiklet Kiralama Edirne | Günlük, Haftalık ve Aylık Fiyatlar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.9rem;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: #3d6bb3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        nav a.active {
+            background: #5890dc;
+            box-shadow: 0 4px 12px rgba(88,144,220,0.4);
+        }
+
+        /* ====== HERO KISMI ====== */
+        .hero {
+            position: relative;
+            padding: 60px 20px; 
+            color: #0b2447;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(30,60,114,0.1), rgba(42,82,152,0.15));
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 25px;
+            padding: 40px 30px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid rgba(42,82,152,0.2);
+            backdrop-filter: blur(6px);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem; 
+            margin-bottom: 10px;
+            color: #1e3c72;
+        }
+
+        .hero p {
+            font-size: 1rem; 
+            color: #2a5298;
+            margin-bottom: 30px;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px; 
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 15px 25px; 
+            border-radius: 20px;
+            border-left: 5px solid #2a5298;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            flex: 1 1 200px; 
+            min-width: 180px; 
+            text-align: center;
+        }
+
+        .feature-box:hover {
+            background: linear-gradient(135deg, #bbdefb, #90caf9);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .feature-box h3 {
+            font-size: 1rem; 
+            margin-bottom: 3px;
+            color: #1e3c72;
+        }
+
+        .feature-box p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0d47a1;
+            margin-top: 5px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #2a5298 0%, #5890dc 100%);
+            color: white;
+            padding: 12px 30px; 
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem; 
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            margin-top: 30px; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(42,82,152,0.4);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        /* ====== DİĞER SECTİONLAR ====== */
+        section {
+            padding: 60px 20px;
+        }
+        
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        h2 {
+            color: #1e3c72;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #2a5298, #5890dc);
+            border-radius: 2px;
+        }
+        
+        .motor-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        .motor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .motor-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .motor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+        
+        .motor-info {
+            padding: 30px;
+        }
+        
+        .motor-info h3 {
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .motor-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .spec-item {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #2a5298;
+        }
+        
+        .spec-item strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            border-left: 5px solid #2a5298;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #2a5298;
+        }
+        
+        .contact-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .map-container {
+            margin-top: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            height: 450px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        footer {
+            background: #1a2a3a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        /* ====== MOBİL UYUMLULUK AYARLARI ====== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem; 
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero .container {
+                padding: 30px 15px; 
+            }
+
+            .hero-features {
+                /* Mobil cihazlarda fiyat kutularının alt alta sıralanması için */
+                flex-direction: column; 
+            }
+
+            .feature-box {
+                flex: 1 1 100%; /* Tam genişlik kullan */
+                padding: 15px 20px;
+            }
+
+            .feature-box p {
+                font-size: 1.5rem; /* Fiyatları daha belirgin yap */
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            nav a {
+                text-align: center;
+            }
+            
+            .header-content {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .motor-image {
+                height: 250px;
+            }
+            
+            .contact-grid {
+                gap: 20px; /* İletişim kartları arasındaki boşluğu azalt */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div>
+                        <div>ÇAKIR</div>
+                        <div class="logo-subtitle">Motosiklet Kiralama</div>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#anasayfa" class="nav-link active">Ana Sayfa</a></li>
+                        <li><a href="#motorlarimiz" class="nav-link">Motorlarımız</a></li>
+                        <li><a href="#hakkimizda" class="nav-link">Hakkımızda</a></li>
+                        <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="anasayfa" class="hero">
+        <div class="container">
+            <h1>Edirne'nin Güvenilir Motosiklet Kiralama Firması</h1>
+            <p>Şehrin Keyfini Günlük, Haftalık ve Aylık Kiralama Seçenekleriyle Çıkarın!</p>
+            <div class="hero-features">
+                <div class="feature-box">
+                    <h3>📅 GÜNLÜK KİRALAMA</h3>
+                    <p>400 TL</p>
+                </div>
+                <div class="feature-box">
+                    <h3>📆 HAFTALIK KİRALAMA</h3>
+                    <p>2500 TL</p>
+                </div>
+                <div class="feature-box">
+                    <h3>🗓 AYLIK KİRALAMA</h3>
+                    <p>6500 TL</p>
+                </div>
+            </div>
+            <a href="#iletisim" class="cta-button nav-link">Hemen İletişime Geçin</a>
+        </div>
+    </section>
+
+    <section id="motorlarimiz">
+        <div class="container">
+            <h2>Motorlarımız</h2>
+            <div class="motor-card">
+                <div class="motor-image">
+                    <img src="CEO-110-KIRMIZI.png" alt="Motolux CEO 110">
+                </div>
+                <div class="motor-info">
+                    <h3>MOTOLUX CEO 110</h3>
+                    <p>Modern tasarımı ve güvenilir performansıyla şehir içi ulaşımınız için ideal motorsiklet. Yakıt tasarruflu motoru ve konforlu sürüş deneyimi ile günlük kullanıma mükemmel bir seçenek.</p>
+                    <div class="motor-specs">
+                        <div class="spec-item">
+                            <strong>Motor Hacmi</strong>110cc
+                        </div>
+                        <div class="spec-item">
+                            <strong>Yakıt Tüketimi</strong>Çok Ekonomik
+                        </div>
+                        <div class="spec-item">
+                            <strong>Kullanım Alanı</strong>Şehir İçi
+                        </div>
+                        <div class="spec-item">
+                            <strong>Özellikler</strong>Konforlu & Güvenli
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimizda">
+        <div class="container">
+            <h2>Hakkımızda</h2>
+            <div class="about-content">
+                <p>Çakır Motosiklet Kiralama olarak Edirne'de yıllardır motosiklet kiralama hizmeti sunmaktayız. Müşteri memnuniyetini ön planda tutarak, güvenilir ve kaliteli araçlarımızla hizmet veriyoruz.</p>
+                <p>Şehir içi ulaşımınızı kolaylaştırmak, pratik ve ekonomik çözümler sunmak misyonumuz. Günlük, haftalık ve aylık kiralama seçeneklerimizle her türlü ihtiyacınıza uygun paketler sunuyoruz.</p>
+                <div class="highlight-box">
+                    <h3 style="color: #1e3c72; margin-bottom: 15px;">Neden Bizi Tercih Etmelisiniz?</h3>
+                    <p><strong>✓</strong> Bakımlı ve güvenli araç filosu</p>
+                    <p><strong>✓</strong> Esnek kiralama seçenekleri</p>
+                    <p><strong>✓</strong> Uygun fiyatlar ve özel kampanyalar</p>
+                    <p><strong>✓</strong> Deneyimli ve güler yüzlü ekip</p>
+                    <p><strong>✓</strong> Merkezi konumda hizmet</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim">
+        <div class="container">
+            <h2>İletişim</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Telefon</h3>
+                    <p><strong>0541 220 99 22</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.95rem;">Haftanın her günü arayabilirsiniz</p>
+                    <p style="margin-top: 5px; font-size: 0.9rem; color: #1e3c72;">Yetkili: Ufuk Karabaş</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Adres</h3>
+                    <p><strong>Merkez / EDİRNE</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.95rem;">Şehir merkezinde kolayca ulaşabileceğiniz konumda</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">🕒</div>
+                    <h3>Çalışma Saatleri</h3>
+                    <p><strong>Hafta İçi: 09:00 - 19:00</strong></p>
+                    <p style="margin-top: 5px;"><strong>Hafta Sonu: 09:00 - 18:00</strong></p>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1490.3284378737384!2d26.582661!3d41.660735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDM5JzM4LjYiTiAyNsKwMzQnNTcuNiJF!5e0!3m2!1str!2str!4v1234567890"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Çakır Motosiklet Kiralama - Tüm Hakları Saklıdır</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Edirne | Merkez | İletişim: 0541 220 99 22 (Ufuk Karabaş)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling hem navigasyon linkleri hem de CTA butonu için çalışır
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Eğer tıklanan öğe navigasyon menüsündeyse, active sınıfını ayarla
+                if (this.parentNode.tagName === 'LI') {
+                    document.querySelectorAll('nav .nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+
+                const target = document.querySelector(this.getAttribute('href'));
+                // Header'ın yüksekliği (yaklaşık 80px) kadar boşluk bırakarak yumuşak kaydırma
+                window.scrollTo({
+                    top: target.offsetTop - 80, 
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
