@@ -182,6 +182,7 @@
             box-shadow: 0 8px 25px rgba(42,82,152,0.4);
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         }
+        
         /* ====== DİĞER SECTİONLAR ====== */
         section {
             padding: 60px 20px;
@@ -360,53 +361,217 @@
         
         /* ====== MOBİL UYUMLULUK AYARLARI ====== */
         @media (max-width: 768px) {
+            /* Header düzenlemeleri */
+            header {
+                padding: 0.8rem 0;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.75rem;
+            }
+
+            /* Navigasyon menüsü mobil düzenlemesi */
+            nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                width: 100%;
+            }
+
+            nav a {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+
+            /* Hero bölümü mobil düzenlemesi */
+            .hero {
+                padding: 40px 15px;
+            }
+
+            .hero .container {
+                padding: 25px 15px;
+                border-radius: 15px;
+            }
+
             .hero h1 {
-                font-size: 1.8rem; 
+                font-size: 1.4rem;
+                line-height: 1.3;
             }
             
             .hero p {
-                font-size: 1rem;
-            }
-            
-            .hero .container {
-                padding: 30px 15px; 
+                font-size: 0.9rem;
+                margin-bottom: 25px;
             }
 
+            /* Fiyat kutuları mobil düzenlemesi */
             .hero-features {
-                /* Mobil cihazlarda fiyat kutularının alt alta sıralanması için */
-                flex-direction: column; 
+                flex-direction: column;
+                gap: 12px;
             }
 
             .feature-box {
-                flex: 1 1 100%; /* Tam genişlik kullan */
-                padding: 15px 20px;
+                flex: 1 1 100%;
+                padding: 18px 20px;
+                min-width: unset;
+            }
+
+            .feature-box h3 {
+                font-size: 0.95rem;
             }
 
             .feature-box p {
-                font-size: 1.5rem; /* Fiyatları daha belirgin yap */
+                font-size: 1.6rem;
             }
-            
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-                margin-top: 10px;
+
+            /* CTA butonu mobil düzenlemesi */
+            .cta-button {
+                padding: 14px 25px;
+                font-size: 0.95rem;
+                margin-top: 25px;
             }
-            
-            nav a {
-                text-align: center;
+
+            /* Section düzenlemeleri */
+            section {
+                padding: 40px 15px;
             }
-            
-            .header-content {
-                justify-content: center;
-                text-align: center;
+
+            h2 {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
             }
-            
+
+            /* Motor kartı mobil düzenlemesi */
             .motor-image {
-                height: 250px;
+                height: 220px;
             }
-            
+
+            .motor-image img {
+                padding: 15px;
+            }
+
+            .motor-info {
+                padding: 20px;
+            }
+
+            .motor-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .motor-info p {
+                font-size: 0.95rem;
+            }
+
+            .motor-specs {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-top: 20px;
+            }
+
+            .spec-item {
+                padding: 12px;
+            }
+
+            /* Hakkımızda bölümü mobil düzenlemesi */
+            .about-content {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .highlight-box {
+                padding: 20px;
+                margin-top: 25px;
+            }
+
+            .highlight-box h3 {
+                font-size: 1.1rem;
+            }
+
+            .highlight-box p {
+                font-size: 0.9rem;
+            }
+
+            /* İletişim kartları mobil düzenlemesi */
             .contact-grid {
-                gap: 20px; /* İletişim kartları arasındaki boşluğu azalt */
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-card {
+                padding: 25px 20px;
+            }
+
+            .contact-icon {
+                font-size: 2.5rem;
+            }
+
+            .contact-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .contact-card p {
+                font-size: 1rem;
+            }
+
+            /* Harita mobil düzenlemesi */
+            .map-container {
+                height: 300px;
+                margin-top: 30px;
+                border-radius: 15px;
+            }
+
+            /* Footer mobil düzenlemesi */
+            footer {
+                padding: 25px 15px;
+            }
+
+            footer p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Çok küçük ekranlar için ek düzenlemeler */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.7rem;
+            }
+
+            .hero h1 {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 0.85rem;
+            }
+
+            .feature-box h3 {
+                font-size: 0.85rem;
+            }
+
+            .feature-box p {
+                font-size: 1.4rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                padding: 7px 12px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -548,19 +713,16 @@
     </footer>
 
     <script>
-        // Smooth scrolling hem navigasyon linkleri hem de CTA butonu için çalışır
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Eğer tıklanan öğe navigasyon menüsündeyse, active sınıfını ayarla
                 if (this.parentNode.tagName === 'LI') {
                     document.querySelectorAll('nav .nav-link').forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
                 }
 
                 const target = document.querySelector(this.getAttribute('href'));
-                // Header'ın yüksekliği (yaklaşık 80px) kadar boşluk bırakarak yumuşak kaydırma
                 window.scrollTo({
                     top: target.offsetTop - 80, 
                     behavior: 'smooth'
